@@ -24,7 +24,17 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    }
-  }
+      "supportsTablet": true,
+      "bundleIdentifier": "com.calebdeji.toDo",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.calebdeji.toDo",
+      "versionCode": 1
+    },
+    "description": "",
+    "entryPoint": "node_modules/expo/AppEntry.js"
+  },
+  "displayName": "ToDo APP",
+  "name": "ToDo"
 }

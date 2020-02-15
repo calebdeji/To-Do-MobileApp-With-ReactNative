@@ -1,19 +1,32 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from "react";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import SignUp from "./Screens/SignUp/SignUp";
+import SignIn from "./Screens/SignIn/SignIn";
+import Home from "./Screens/Home/Home";
+import DelegateBottomTab from "./Screens/DelegateBottomTab/DelegateBottomTab";
+import { Provider } from "react-redux";
+import { Store } from "./redux/store";
+
+const StackScreens = createStackNavigator();
+
+export default class App extends Component {
+    render() {
+        return (
+            <Provider store={Store}>
+                <NavigationContainer>
+                    <StackScreens.Navigator headerMode="none">
+                        <StackScreens.Screen name="SignUp" component={SignUp} />
+                        <StackScreens.Screen name="SignIn" component={SignIn} />
+                        <StackScreens.Screen name="Home" component={Home} />
+                        <StackScreens.Screen
+                            name="DelegateBottomTab"
+                            component={DelegateBottomTab}
+                        />
+                    </StackScreens.Navigator>
+                </NavigationContainer>
+            </Provider>
+        );
+    }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
